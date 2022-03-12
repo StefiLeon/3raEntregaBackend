@@ -2,11 +2,14 @@ import mongoose from "mongoose";
 import User from './User.js';
 import Cart from './Cart.js';
 import Product from './Product.js';
+import loggerHandler from '../utils/logger.js'
+
+const logger = loggerHandler();
 
 export default class Dao {
     constructor(config) {
         this.mongoose = mongoose.connect(config.url, {useNewUrlParser:true}).catch(error => {
-            console.log(error);
+            logger.error(error.message);
             process.exit();
         })
         const timestamp = {timestamps: {createdAt:'created_at', updatedAt:'updated_at'}};
@@ -45,7 +48,7 @@ export default class Dao {
             let result = await instance.save();
             return result ? result.toObject() : null;
         } catch(err) {
-            console.log(err);
+            logger.error(err.message);
             return null;
         }
     }
