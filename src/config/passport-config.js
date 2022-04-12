@@ -26,7 +26,7 @@ const initializePassport = () => {
                 edad, 
                 telefono,
                 role: 'user',
-                avatar: req.file.filename
+                avatar: req.file.filename || req.avatar
             }
             let result = await userService.save(newUser);
             sendMail('Nuevo registro', `<h1>Registro de ${newUser.nombre}</h1>

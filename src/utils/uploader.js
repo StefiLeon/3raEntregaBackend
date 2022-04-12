@@ -1,7 +1,4 @@
 import multer from 'multer';
-// import multerS3 from 'multer-s3';
-// import aws from 'aws-sdk';
-// import config from '../config/config.js';
 import __dirname from '../__dirname.js';
 
 const storage = multer.diskStorage({

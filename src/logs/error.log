@@ -1,0 +1,3 @@
+{"level":"error","message":"E11000 duplicate key error collection: ecommerce.products index: code_1 dup key: { code: 147 }","timestamp":"2022-04-10T18:01:54.585Z"}
+{"level":"error","message":"E11000 duplicate key error collection: ecommerce.products index: code_1 dup key: { code: 247 }","timestamp":"2022-04-10T18:09:08.436Z"}
+{"level":"error","message":"E11000 duplicate key error collection: ecommerce.products index: code_1 dup key: { code: 247 }","timestamp":"2022-04-10T18:10:21.407Z"}

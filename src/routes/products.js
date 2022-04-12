@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { productService } from '../services/services.js';
+import __dirname from '../__dirname.js';
 
 const router = Router();
 
@@ -25,15 +26,17 @@ router.post('/', async (req, res) => {
     let file = req.file;
     let producto = req.body;
     console.log(producto);
-    producto.thumbnail = __dirname+`/images/${file.filename}`;
+    if(file){
+        producto.thumbnail = __dirname+`/images/${file.filename}`;
+    }
     await productService.save(producto).then(result => {
         res.send(producto);
-        if(producto) {
-            productService.getAll().then(result => {
-                io.emit('updateProducts', result);
-                console.log(producto.id)
-            })
-        }
+        // if(producto) {
+        //     productService.getAll().then(result => {
+        //         io.emit('updateProducts', result);
+        //         console.log(producto.id)
+        //     })
+        // }
     })
 })
 
